@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "585047965103",
+    "firebase_url": "https://coffeebrew-f3dc5.firebaseio.com",
+    "project_id": "coffeebrew-f3dc5",
+    "storage_bucket": "coffeebrew-f3dc5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:585047965103:android:f5c202ecf60e77e592c35a",
+        "android_client_info": {
+          "package_name": "com.indieclan.coffeebrew"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "585047965103-od0nj3sn0o4fsllirjt50ld5j2jo78q8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLPJ8IcaZmgi5WwdEvss4QgsAGokKbt6g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "585047965103-od0nj3sn0o4fsllirjt50ld5j2jo78q8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
