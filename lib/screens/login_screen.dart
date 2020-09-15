@@ -1,8 +1,16 @@
 import 'package:coffeebrew/constants.dart';
 import 'package:coffeebrew/screens/registration_screen.dart';
+import 'package:coffeebrew/services/auth.dart';
 import 'package:flutter/material.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
+  @override
+  _LoginScreenState createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  final AuthService authService = AuthService();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +34,6 @@ class LoginScreen extends StatelessWidget {
               ),
             ),
             Positioned(
-              height: MediaQuery.of(context).size.height / 2,
               bottom: 48.0,
               left: 10.0,
               right: 10.0,
@@ -71,7 +78,13 @@ class LoginScreen extends StatelessWidget {
                           ),
                           TextField(
                             decoration: InputDecoration(
-                              suffixIcon: Icon(Icons.visibility),
+                              suffixIcon: IconButton(
+                                icon: Icon(
+                                  Icons.visibility,
+                                  color: ktextfieldIconcolor,
+                                ),
+                                onPressed: () {},
+                              ),
                               icon: Icon(
                                 Icons.lock,
                                 color: ktextfieldIconcolor,
@@ -132,6 +145,38 @@ class LoginScreen extends StatelessWidget {
                             },
                             child: Text(
                               'Register',
+                            ),
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10),
+                                side: BorderSide(
+                                  color: Colors.black26,
+                                )),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Align(
+                      alignment: Alignment.center,
+                      child: Padding(
+                        padding: EdgeInsets.all(16),
+                        child: SizedBox(
+                          height: 50,
+                          width: double.infinity,
+                          child: RaisedButton(
+                            splashColor: Color.fromRGBO(242, 178, 2, 1),
+                            elevation: 0,
+                            color: Colors.white,
+                            onPressed: () async {
+                              dynamic result = await authService.signinanon();
+                              if (result == null) {
+                                print("error signing in");
+                              } else {
+                                print("Signed in:");
+                                print(result.userId);
+                              }
+                            },
+                            child: Text(
+                              'Signin Anonymously!',
                             ),
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10),

@@ -1,10 +1,11 @@
-import 'package:coffeebrew/screens/login_screen.dart';
+import 'package:coffeebrew/screens/wrapper.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 void main() {
-  runApp(MyApp());
-  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  runApp(
+    MyApp(),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -15,7 +16,21 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Coffee Brew',
       theme: ThemeData(),
-      home: LoginScreen(),
+      home: FutureBuilder(
+        future: initializeFireApp(),
+        builder: (context, snap) {
+          if (snap.connectionState == ConnectionState.done) {
+            return Wrapper();
+          } else if (snap.connectionState == ConnectionState.none) {
+            return Text("No data");
+          }
+          return CircularProgressIndicator();
+        },
+      ),
     );
+  }
+
+  Future initializeFireApp() async {
+    return await Firebase.initializeApp();
   }
 }

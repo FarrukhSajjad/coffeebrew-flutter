@@ -70,7 +70,13 @@ class RegistrationScreen extends StatelessWidget {
                           ),
                           TextField(
                             decoration: InputDecoration(
-                              suffixIcon: Icon(Icons.visibility),
+                              suffixIcon: IconButton(
+                                icon: Icon(
+                                  Icons.visibility,
+                                  color: ktextfieldIconcolor,
+                                ),
+                                onPressed: () {},
+                              ),
                               icon: Icon(
                                 Icons.lock,
                                 color: ktextfieldIconcolor,
