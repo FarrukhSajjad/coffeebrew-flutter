@@ -1,16 +1,32 @@
-# coffeebrew
+# COFFEEBREW
 
-A new Flutter project.
+Coffee Brew is a coffee personalization app which uses firebase as a storage back end.
+Built in flutter.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+This project covers the use of firebase in detail using flutter.
 
-A few resources to get you started if this is your first Flutter project:
+Major building blocks of coffee brew are:
+Listviews, google fonts, inAppRatings, AssetImages, passing data through Navigators in flutter, firestore as storage end.
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+# COFFEEBREW
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+## Developed By:
+@Copyright
+- Farrukh Sajjad
+
+
+
+## Demo of our app 
+
+
+
+
+# Login Screen!
+![login_screen](<https://raw.githubusercontent.com/FarrukhSajjad/coffeebrew-flutter/master/assets/images/login.jpg>)
+
+# Register Screen!
+
+![registration_screen](<https://raw.githubusercontent.com/FarrukhSajjad/coffeebrew-flutter/master/assets/images/register.jpg>)
