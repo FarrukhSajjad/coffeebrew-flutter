@@ -1,8 +1,12 @@
 import 'package:coffeebrew/screens/wrapper.dart';
+import 'package:coffeebrew/services/auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(
     MyApp(),
   );
@@ -12,25 +16,14 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Coffee Brew',
-      theme: ThemeData(),
-      home: FutureBuilder(
-        future: initializeFireApp(),
-        builder: (context, snap) {
-          if (snap.connectionState == ConnectionState.done) {
-            return Wrapper();
-          } else if (snap.connectionState == ConnectionState.none) {
-            return Text("No data");
-          }
-          return CircularProgressIndicator();
-        },
+    return StreamProvider.value(
+      value: AuthService().user,
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Coffee Brew',
+        theme: ThemeData(),
+        home: Wrapper(),
       ),
     );
-  }
-
-  Future initializeFireApp() async {
-    return await Firebase.initializeApp();
   }
 }
