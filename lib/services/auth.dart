@@ -1,4 +1,5 @@
 import 'package:coffeebrew/modals/user.dart';
+import 'package:coffeebrew/services/database.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthService {
@@ -40,6 +41,7 @@ class AuthService {
         password: password,
       );
       User user = result.user;
+      await DatabaseService(uid: user.uid).updateUserData("1", "Farrukh", 200);
       return _userFromFirebase(user);
     } catch (e) {
       return null;

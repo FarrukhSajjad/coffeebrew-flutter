@@ -141,42 +141,37 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                                           padding: EdgeInsets.all(16),
                                           child: SizedBox(
                                             width: double.infinity,
-                                            child: Column(
-                                              children: [
-                                                RaisedButton(
-                                                  splashColor: Colors.black,
-                                                  color: Color.fromRGBO(
-                                                      242, 178, 2, 1),
-                                                  onPressed: () async {
-                                                    if (_formKey.currentState
-                                                        .validate()) {
-                                                      setState(() {
-                                                        loading = true;
-                                                      });
-                                                      dynamic result = await _auth
-                                                          .registerWithEmailandPassword(
-                                                              email, password);
-                                                      if (result == null) {
-                                                        setState(() {
-                                                          loading = false;
-                                                        });
-                                                      }
-                                                      print(email);
-                                                      print(password);
-                                                    }
-                                                  },
-                                                  child: Text(
-                                                    'Register',
-                                                    style: TextStyle(
-                                                        color: Colors.white),
-                                                  ),
-                                                  shape: RoundedRectangleBorder(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            10),
-                                                  ),
-                                                ),
-                                              ],
+                                            child: RaisedButton(
+                                              splashColor: Colors.black,
+                                              color: Color.fromRGBO(
+                                                  242, 178, 2, 1),
+                                              onPressed: () async {
+                                                if (_formKey.currentState
+                                                    .validate()) {
+                                                  setState(() {
+                                                    loading = true;
+                                                  });
+                                                  dynamic result = await _auth
+                                                      .registerWithEmailandPassword(
+                                                          email, password);
+                                                  if (result == null) {
+                                                    setState(() {
+                                                      loading = false;
+                                                    });
+                                                  }
+                                                  print(email);
+                                                  print(password);
+                                                }
+                                              },
+                                              child: Text(
+                                                'Register',
+                                                style: TextStyle(
+                                                    color: Colors.white),
+                                              ),
+                                              shape: RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(10),
+                                              ),
                                             ),
                                           ),
                                         ),
